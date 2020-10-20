@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+	function BackFullScreen() {
+	    var BigImgUrl = document.getElementById("pic").getAttribute("src");
+	    var FullScreenDiv = document.getElementById("FullScreenDiv");
+	    FullScreenDiv.style.width = document.body.clientWidth + "px";
+	    FullScreenDiv.style.height = document.body.clientHeight + "px";
+	    FullScreenDiv.style.display = "block";
+	    var ShowBigImgDiv = document.getElementById("ShowBigImgDiv");
+	    var ShowBigImgDivPosition;
+	    ShowBigImgDiv.style.display = "block";
+	    ShowBigImgDiv.innerHTML = "<img src=\"" + BigImgUrl + "\" width=\"500\" height=\"400\"  border=\"0\" />";
+	    ShowBigImgDivPosition = document.documentElement.scrollTop;
+	    if (ShowBigImgDivPosition == 0 || ShowBigImgDivPosition == "") {
+	        ShowBigImgDivPosition = document.body.scrollTop;
+	    }
+	    ShowBigImgDiv.style.top = ShowBigImgDivPosition + ((window.screen.height - ShowBigImgDiv.clientHeight) / 2 - 170 ) + "px";
+	    ShowBigImgDiv.style.left = (window.screen.width - ShowBigImgDiv.clientWidth) / 2 - 90 + "px";
+	
+	}
+	function BackFullScreenHidde() {
+	    document.getElementById("ShowBigImgDiv").style.display = "none";
+	    document.getElementById("FullScreenDiv").style.display = "none";
+	}
+		
+	</script>
+</head>
+
+<body onload="initRotSquare()">
+    <div id="FullScreenDiv" onclick="BackFullScreenHidde()" title="点击缩小"></div>
+    <div id="ShowBigImgDiv" onclick="BackFullScreenHidde()" title="点击缩小"></div>
+	<img onclick="BackFullScreen(this.src)" id="pic" alt="实验0" src="1.png" height="100px" width="200px">
+	<p>点击改变大小</p>
+</body>
+</html>

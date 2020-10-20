@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#mycanvas{
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="500" height="500"></canvas>
+		
+		<script type="text/javascript">
+			var canvas = document.getElementById("mycanvas");
+			var ctx = canvas.getContext("2d");
+			var t=0;
+			function up(){
+				t=t+10;
+			}
+			function draw(){
+				ctx .beginPath();
+				ctx.arc(250,250,200,0,Math.PI*2);
+				ctx.closePath();
+				ctx.stroke();
+				//
+				ctx.beginPath();
+				ctx.arc(180,180,25,0,Math.PI*2);
+				ctx.closePath();
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.arc(320,180,25,0,Math.PI*2);
+				ctx.closePath();
+				ctx.stroke();
+				//
+				ctx.beginPath();
+			    ctx.arc(250,200+t,150,0,Math.PI*1);
+			    ctx.stroke();
+			}
+		</script>
+		    嘴巴变多：
+		    <input type="submit" id="change" onclick="up();draw();" />
+			
+	</body>
+</html>
